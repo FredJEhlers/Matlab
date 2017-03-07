@@ -140,13 +140,31 @@ Format: Text
 Valid Range: Area surrounding the University of Pretoria
 Timing: There is an upcoming event that relates to the user
 
-System interface:
+System Interface:
 Input: An administrator will add an event.
 Output: The event will be added to the list of events.
+
+Hardware Interface
+Input: Server sends the data packets to the mobile application.
+Output: The mobile application will vibrate or make a sound.
+
 \subsubsection{Performance Requirements}
+The system should be able to send out a large number of notifications without any delay (within 5 seconds).
+\\
+Multiple administrators should be able to add new notifications without failure.
 
 \subsubsection{Design Constraints}
+
 \subsubsection{Software System Attributes}
+Flexibility: The system should allow for the addition of new notification means.
+\\
+Maintainability: The users’ contact information should be updated on a regular basis.
+\\
+Security: The users’ contact information should be kept secure in order to ensure that third parties do not have access to it.
+\\
+Auditability: The system should keep track of the sent and requested notifications.
+\\
+Integrability: The system should allow for future expansions.
 \subsubsection{UML Diagrams}
 \subsubsection{Technology Choices}
 
