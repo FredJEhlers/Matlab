@@ -135,6 +135,10 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \subsection {Notifications}
 
 \subsubsection{External Interface Requirements}
+Name: Notification
+Format: Text
+Valid Range: Area surrounding the University of Pretoria
+Timing: There is an upcoming event that relates to the user
 \subsubsection{Performance Requirements}
 \subsubsection{Design Constraints}
 \subsubsection{Software System Attributes}
