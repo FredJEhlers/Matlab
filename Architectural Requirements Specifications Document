@@ -128,9 +128,27 @@ u15059538\\
 \section{UML Diagrams for the Chosen Subsystems}
 Design Patterns have been integrated and a discussion of their use are made below the respective diagrams.
 
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{DeploymentDiagram.jpg}
+   	\caption{Deployment Diagram for NavUP}
+\end{figure}
+
 \subsection {User}
 
 \subsection {Navigation}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Class-Diagram.png}
+   	\caption{Class Diagram for the Navigations Module}
+\end{figure}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Use-Case.jpg}
+   	\caption{Use Case Diagram for the Navigations Module}
+\end{figure}
 
 \subsection {Notifications}
 
