@@ -159,6 +159,12 @@ Multiple administrators should be able to add new notifications without failure.
 Flexibility: The system should allow for the addition of new notification means.
 \\
 Maintainability: The users’ contact information should be updated on a regular basis.
+\\
+Security: The users’ contact information should be kept secure in order to ensure that third parties do not have access to it.
+\\
+Auditability: The system should keep track of the sent and requested notifications.
+\\
+Integrability: The system should allow for future expansions.
 \subsubsection{UML Diagrams}
 \subsubsection{Technology Choices}
 
