@@ -135,18 +135,13 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \subsection {Notifications}
 
 \subsubsection{External Interface Requirements}
-Name: Notification
-Format: Text
-Valid Range: Area surrounding the University of Pretoria
-Timing: There is an upcoming event that relates to the user
 
-System Interface:
-Input: An administrator will add an event.
-Output: The event will be added to the list of events.
+\paragraph{Software Interface}
+\mbox{}\\
+The mobile application will connect to the database in order to obtain the users’ information. One such example includes obtaining information regarding the individuals selected notification medium. The mobile application will also connect to the server in order to update information regarding the users email address and mobile number.
 
-Hardware Interface
-Input: Server sends the data packets to the mobile application.
-Output: The mobile application will vibrate or make a sound.
+\mbox{}\\
+The server will be connected to the notification plugins, which include email and SMS plugins, as well as the application itself in times when notifications are displayed as a pop-up on the users’ mobile device.
 
 \subsubsection{Performance Requirements}
 The system should be able to send out a large number of notifications without any delay (within 5 seconds).
