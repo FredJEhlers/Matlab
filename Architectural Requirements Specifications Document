@@ -157,9 +157,45 @@ information like disabilities.
 \section{UML Diagrams for the Chosen Subsystems}
 Design Patterns have been integrated and a discussion of their use are made below the respective diagrams.
 
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{DeploymentDiagram.jpg}
+   	\caption{Deployment Diagram for NavUP}
+\end{figure}
+
 \subsection {User}
 
 \subsection {Navigation}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Class-Diagram.png}
+   	\caption{Class Diagram for the Navigations Module}
+\end{figure}
+
+\subsubsection {Explanation of Design Patterns in Navigation Module}
+\begin{itemize}
+
+\item \underline{Memento Pattern} - The Memento Pattern has been used in the navigation module in order to capture the internal state of a "route" object while the route is being calculated.
+\item The internal state of the route that we would like to capture is the respective arrays for waypoints, partial distances, partial times and actual distances in the route. 
+\item While routing, connection can be lost or the user may diverge from the specified paths during which the system will have to save the internal state so that it can return to this state at a later stage.
+\item The role-back function in this case would be the re-route function.
+\item The originator in the module is the Route class.
+\item The caretaker is the Navigation class.
+\item The memento is the PartialRouteMemento class.
+
+\item \underline{Strategy Pattern} - The Strategy Pattern has been used in the navigation module in order to define a family of routing algorithms and make them interchangeable.
+\item The users of the system will specify by clicking on different icons, the type of routing they want.
+\item The abstraction class would be the Route class which is the interface to the user and is very generic with fundamental functionality.
+\item The implementation classes would be the SimpleRoute, ShortestRoute and TrafficSenstiveRoute classes that will override the functionality of the superclass with algorithms for their respective needs.
+
+\end{itemize}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Use-Case.jpg}
+   	\caption{Use Case Diagram for the Navigations Module}
+\end{figure}
 
 \subsection {Notifications}
 
