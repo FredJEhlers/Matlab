@@ -140,9 +140,14 @@ Format: Text
 Valid Range: Area surrounding the University of Pretoria
 Timing: There is an upcoming event that relates to the user
 
-System interface:
+System Interface:
 Input: An administrator will add an event.
 Output: The event will be added to the list of events.
+
+Hardware Interface
+Input: Server sends the data packets to the mobile application.
+Output: The mobile application will vibrate or make a sound.
+
 \subsubsection{Performance Requirements}
 
 \subsubsection{Design Constraints}
