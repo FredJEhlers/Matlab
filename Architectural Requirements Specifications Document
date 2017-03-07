@@ -152,8 +152,13 @@ Output: The mobile application will vibrate or make a sound.
 The system should be able to send out a large number of notifications without any delay (within 5 seconds).
 \\
 Multiple administrators should be able to add new notifications without failure.
+
 \subsubsection{Design Constraints}
+
 \subsubsection{Software System Attributes}
+Flexibility: The system should allow for the addition of new notification means.
+\\
+Maintainability: The users’ contact information should be updated on a regular basis.
 \subsubsection{UML Diagrams}
 \subsubsection{Technology Choices}
 
