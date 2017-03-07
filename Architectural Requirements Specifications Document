@@ -118,8 +118,7 @@ u15059538\\
 
 
 \section{External Interface Requirements}
-\subsection {User}
-Navigation External Interface Requirements:
+\subsection {Navigation}
 The navigation system communicates to three main entities. The network, the user and the user’s device. There needs to be an interface 
 between each one of these entities to allow communication. 
 
