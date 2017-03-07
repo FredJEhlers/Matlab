@@ -137,12 +137,22 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \subsubsection{External Interface Requirements}
 
 \paragraph{Software Interface}
+
 \mbox{}\\
 The mobile application will connect to the database in order to obtain the users’ information. One such example includes obtaining information regarding the individuals selected notification medium. The mobile application will also connect to the server in order to update information regarding the users email address and mobile number.
 
 \mbox{}\\
 The server will be connected to the notification plugins, which include email and SMS plugins, as well as the application itself in times when notifications are displayed as a pop-up on the users’ mobile device.
 
+\paragraph{Hardware Interface}
+\mbox{}\\
+The user will interact with the mobile device screen in order to set their notification medium preference that is sent and stored on the server. 
+
+\mbox{}\\
+When there is a notification, the server will then send data packets to the mobile application by making use of sockets. This will cause the mobile device to display the message as well as vibrate or make a sound. 
+
+\mbox{}\\
+The user will once again interact with the screen on their mobile device in order to view the notification.
 \subsubsection{Performance Requirements}
 The system should be able to send out a large number of notifications without any delay (within 5 seconds).
 \\
