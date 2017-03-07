@@ -122,6 +122,7 @@ u15059538\\
 Navigation External Interface Requirements:
 The navigation system communicates to three main entities. The network, the user and the user’s device. There needs to be an interface 
 between each one of these entities to allow communication. 
+
 User interface: 
 The user interacts with the navigation system via the GUI. This GUI needs to be flexible enough to function on devices of various sizes 
 and operating systems. The interface must allow the user to have some method of control over the navigation system like choosing 
