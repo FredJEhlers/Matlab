@@ -139,7 +139,12 @@ Name: Notification
 Format: Text
 Valid Range: Area surrounding the University of Pretoria
 Timing: There is an upcoming event that relates to the user
+
+System interface:
+Input: An administrator will add an event.
+Output: The event will be added to the list of events.
 \subsubsection{Performance Requirements}
+
 \subsubsection{Design Constraints}
 \subsubsection{Software System Attributes}
 \subsubsection{UML Diagrams}
