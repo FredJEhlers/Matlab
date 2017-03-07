@@ -118,6 +118,35 @@ u15059538\\
 
 
 \section{External Interface Requirements}
+\subsection {User}
+Navigation External Interface Requirements:
+The navigation system communicates to three main entities. The network, the user and the user’s device. There needs to be an interface 
+between each one of these entities to allow communication. 
+User interface: 
+The user interacts with the navigation system via the GUI. This GUI needs to be flexible enough to function on devices of various sizes 
+and operating systems. The interface must allow the user to have some method of control over the navigation system like choosing 
+destinations, waypoints, routes and change in these routes. 
+
+The navigation system should also communicates to the user by showing information on the screen and through audio. This information
+includes messages on the screen, the map, locations on the map and the possible routes on the map.
+
+Other aspects of the user interface like font, icons and the more visual aspects will be decided upon when the GUI is created.
+
+Device Interface:
+In order to allow communication between the device and the navigation system an interface needs to be created. The navigation system 
+needs access and information from the device in order to function. This includes access to its hardware like the screen, 
+device memory, connection to Wi-Fi or the internet, the location system and to information like the device identity. 
+
+The navigation system will be installed on the device along with the application. Being on the device itself will give it the needed
+access, if permission was granted. 
+
+Network Interface:
+The navigation system functions best with communication between it and the network. This connection is established through the device’s 
+connection. The connection can be to a WI-FI network or the mobile data network. 
+
+The interface needs to facilitate exchange of information like location, identity, traffic, route information and aspects that might 
+influence how navigation will take place. These aspects can be events, personal preference or personal 
+information like disabilities. 
 
 \section{Performance Requirements}
 
