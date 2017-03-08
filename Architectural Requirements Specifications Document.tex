@@ -161,11 +161,21 @@ Design Patterns have been integrated and a discussion of their use are made belo
 
 \subsection {User}
 
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{User_Class_Diagrams.png}
+   	\caption{Class Diagram for the User Module}
+\end{figure}
+\subsubsection {Explanation of Design Patterns in User Module}
+\begin{itemize}
+\item \underline{Proxy Pattern} The proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
 
+\item The Data Transfer Objects (DTO's)  can have extra / less fields depending on what the client is or is not allowed to see in the user object. Typically the user object will have more fields than the DTO ( such as roles, hashes of passwords etc). 
+
+\item \underline{•}  
+\end{itemize}
 
 \subsection {Navigation}
-
-
 
 \begin{figure}[H]
    	\centering
