@@ -82,6 +82,7 @@ u15059538\\
 \url{https://github.com/FredJEhlers/Matlab}}
 \end{center}
 \end{titlepage}
+
 %\maketitle
 
 
@@ -160,10 +161,58 @@ Design Patterns have been integrated and a discussion of their use are made belo
 
 \subsection {User}
 
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{User_Class_Diagrams.png}
+   	\caption{Class Diagram for the User Module}
+\end{figure}
+\subsubsection {Explanation of Design Patterns in User Module}
+\begin{itemize}
+\item \underline{Proxy Pattern} The Proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
 
+\item The Data Transfer Objects (DTO's)  can have extra / less fields depending on what the client is or is not allowed to see in the user object. Typically the user object will have more fields than the DTO ( such as roles, hashes of passwords etc). 
+
+\item \underline{Repository Pattern} The Repository Architectural Pattern will be used to manage database access. This pattern enables direct mapping of database objects / row entries to classes. It also delegates the responsibilty of managing the database to a single object. Listed below are a few advantages of using the Repository pattern:
+	\begin{itemize}
+		\item Enables one to maximize the amount of code that can be tested and isolate the data layer to support unit testing. 
+		\item Enable one to access the data source from many locations by using dependency injection as well as apply centrally managed, consistent access rules and logic.
+		\item Improve maintainability and readability of code by separating business logic from data access logic.  
+	\end{itemize}
+
+ 
+\end{itemize}
 
 \subsection {Navigation}
 
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Class-Diagram.png}
+   	\caption{Class Diagram for the Navigations Module}
+\end{figure}
+
+\subsubsection {Explanation of Design Patterns in Navigation Module}
+\begin{itemize}
+
+\item \underline{Memento Pattern} - The Memento Pattern has been used in the navigation module in order to capture the internal state of a "route" object while the route is being calculated.
+\item The internal state of the route that we would like to capture is the respective arrays for waypoints, partial distances, partial times and actual distances in the route. 
+\item While routing, connection can be lost or the user may diverge from the specified paths during which the system will have to save the internal state so that it can return to this state at a later stage.
+\item The role-back function in this case would be the re-route function.
+\item The originator in the module is the Route class.
+\item The caretaker is the Navigation class.
+\item The memento is the PartialRouteMemento class.
+
+\item \underline{Strategy Pattern} - The Strategy Pattern has been used in the navigation module in order to define a family of routing algorithms and make them interchangeable.
+\item The users of the system will specify by clicking on different icons, the type of routing they want.
+\item The abstraction class would be the Route class which is the interface to the user and is very generic with fundamental functionality.
+\item The implementation classes would be the SimpleRoute, ShortestRoute and TrafficSenstiveRoute classes that will override the functionality of the superclass with algorithms for their respective needs.
+
+\end{itemize}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Use-Case.jpg}
+   	\caption{Use Case Diagram for the Navigations Module}
+\end{figure}
 
 
 =======
