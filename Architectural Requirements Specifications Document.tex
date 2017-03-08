@@ -168,11 +168,18 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \end{figure}
 \subsubsection {Explanation of Design Patterns in User Module}
 \begin{itemize}
-\item \underline{Proxy Pattern} The proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
+\item \underline{Proxy Pattern} The Proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
 
 \item The Data Transfer Objects (DTO's)  can have extra / less fields depending on what the client is or is not allowed to see in the user object. Typically the user object will have more fields than the DTO ( such as roles, hashes of passwords etc). 
 
-\item \underline{•}  
+\item \underline{Repository Pattern} The Repository Architectural Pattern will be used to manage database access. This pattern enables direct mapping of database objects / row entries to classes. It also delegates the responsibilty of managing the database to a single object. Listed below are a few advantages of using the Repository pattern:
+	\begin{itemize}
+		\item Enables one to maximize the amount of code that can be tested and isolate the data layer to support unit testing. 
+		\item Enable one to access the data source from many locations by using dependency injection as well as apply centrally managed, consistent access rules and logic.
+		\item Improve maintainability and readability of code by separating business logic from data access logic.  
+	\end{itemize}
+
+ 
 \end{itemize}
 
 \subsection {Navigation}
