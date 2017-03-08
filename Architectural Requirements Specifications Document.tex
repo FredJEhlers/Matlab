@@ -337,6 +337,14 @@ The user will require both a mobile number or email address and a mobile device 
 Tuks email server will be used to notify the users.
 Wi-Fi routers can be used to send the pop-up notifications to the application.
 A SMS service can be used to notify the users.
+\subsubsection{Explanation of Design Patterns in Notifications Module}
+The strategy design pattern was used in the notifications module as it will allow for different mediums of communication to be used interchangeably.
+
+The Context participant will be implemented with the Notification class. This class will be responsible for selecting which strategy will be used to notify the individual.
+
+The Strategy in the design pattern will be implemented using the Strategy class. The responsibility of this class will be to call the required notification algorithm.
+
+The Concrete Strategies will include the Email, SMS and Pop-up classes. These classes will responsible for implementing the different algorithms required for notifying the user based on their selected medium.
 
 
 \subsection {Point of Interest}
