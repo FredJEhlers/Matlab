@@ -266,6 +266,7 @@ The user should also have a method of control over the information disseminated 
 
 
 \subsubsection{External Interface Requirements}
+\mbox{}\\
 The notification system consists of three parts: Software, Hardware and User interface. In order for the notification system to function properly, all three should be able to communicate and work together to perform the required tasks. 
 
 
@@ -297,9 +298,8 @@ The user will initially interact with the notifications module through the appli
 If the chosen notifications medium is email, the user will receive a generic email with the given notification. The email will provide a description of the notification in its title. If required, the email will provide a link to the relevant website for more information concerning the notification. If the user selected to receive notifications via SMS, a message describing the notification will be sent to each user. Once again, a link will be provided in the SMS for more information concerning the notification as required. If the user decided to receive notifications through the application, a pop-up will appear on the applications’ GUI when there is a notification. 
 
 \subsubsection{Performance Requirements}
-
+\mbox{}\\
 The system should be able to send out a large number of notifications without any delay (within 5 seconds).\\
-
 Multiple administrators should be able to add new notifications without failure.
 
 
@@ -313,7 +313,7 @@ The user will require both a mobile number or email address and a mobile device 
 \subsubsection{Software System Attributes}
 \begin{enumerate}
 
-\item[•] Flexibility: The notifications system should be implemented in such a way that it will allow for the addition of new notification means.
+\item[•]Flexibility: The notifications system should be implemented in such a way that it will allow for the addition of new notification means.
 
 \item[•]Maintainability: The notifications module should be implemented in such a way that future development is allowed. To achieve this, developers should write understandable and well documented code.
  
@@ -342,8 +342,14 @@ The user will require both a mobile number or email address and a mobile device 
 \end{center}
 \paragraph{Activity Diagram}
 \begin{center}
-\includegraphics[height=10cm,width=5cm]{ActivityDiagram.png} 
+\includegraphics[height=10cm,width=5cm]{ActivityDiagram.png}\\ 
 \end{center}
+\paragraph{Use Case Diagram}
+\begin{center}
+\includegraphics[height=10cm,width=5cm]{Notification-UseCaseDiagram.png}\\ 
+\end{center}
+
+
 
 
 
