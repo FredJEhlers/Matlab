@@ -1,16 +1,12 @@
 \documentclass[runningheads,a4paper]{article}
-
 \usepackage[utf8]{inputenc}
-
 \setcounter{tocdepth}{3}
-
 \usepackage[english]{babel} 
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{float}
 \usepackage{multicol}
 \usepackage{url}
-
 \usepackage{titling}
 \usepackage[hidelinks]{hyperref}
 \setcounter{secnumdepth}{5}
@@ -19,10 +15,7 @@
 margin=2cm,
 includefoot
 ]{geometry}
-
-
 \graphicspath{{img/}}
-
 %Headers and Footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -33,7 +26,6 @@ includefoot
 \renewcommand{\footrulewidth}{0pt}
 \setlength\parindent{24pt}
 \begin{document}
-
 %Title Page
 \begin{titlepage}
 \begin{center}
@@ -53,68 +45,61 @@ Architectural Requirements Specifications and Design \\
 \textsc{\Large
 Team MatLab
 } \\
-
-
-
 \end{center}
-
 \begin{center}
 \begin{multicols}{2}
 \textsc{\large\\
 Frederick Ehlers\\ 
 u11061112\\ 
 }
-
 \textsc{\large\\
 Vignesh Iyer\\
 u15031625\\ 
 }
-
 \textsc{\large\\
 Stephanie Groutsch\\
 u14293324\\ 
 }
-
 \textsc{\large\\
 Neo Thokoa\\
 u14163285\\
 }
-
 \columnbreak
-
 \textsc{\large\\
 Nokuthula Manana\\
-u[...]\\
+u12064115\\
 }
-
 \textsc{\large\\
 Jacobus Marais\\
 u15188397\\
 }
-
 \textsc{\large\\
 Heinrich Burgers\\
 u15059538\\
 }
-
-
-
 \end{multicols}
-
-
 \textsc{	\\ \href{https://github.com/FredJEhlers/Matlab}{GitHub}
 \url{https://github.com/FredJEhlers/Matlab}}
-
 \end{center}
 \end{titlepage}
+
 %\maketitle
+
+
 
 \begingroup
 
+
+
 \tableofcontents
+
 \addcontentsline{toc}{section}{Table Of Contents}
+
 \endgroup
+
 \newpage
+
+
 
 
 \section{External Interface Requirements}
@@ -148,14 +133,24 @@ The interface needs to facilitate exchange of information like location, identit
 influence how navigation will take place. These aspects can be events, personal preference or personal 
 information like disabilities. 
 
+
+
 \section{Performance Requirements}
+
+
 
 \section{Design Constraints}
 
+
+
 \section{Software System Attributes}
 
+
+
 \section{UML Diagrams for the Chosen Subsystems}
+
 Design Patterns have been integrated and a discussion of their use are made below the respective diagrams.
+
 
 \begin{figure}[H]
    	\centering
@@ -163,7 +158,29 @@ Design Patterns have been integrated and a discussion of their use are made belo
    	\caption{Deployment Diagram for NavUP}
 \end{figure}
 
+
 \subsection {User}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{User_Class_Diagrams.png}
+   	\caption{Class Diagram for the User Module}
+\end{figure}
+\subsubsection {Explanation of Design Patterns in User Module}
+\begin{itemize}
+\item \underline{Proxy Pattern} The Proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
+
+\item The Data Transfer Objects (DTO's)  can have extra / less fields depending on what the client is or is not allowed to see in the user object. Typically the user object will have more fields than the DTO ( such as roles, hashes of passwords etc). 
+
+\item \underline{Repository Pattern} The Repository Architectural Pattern will be used to manage database access. This pattern enables direct mapping of database objects / row entries to classes. It also delegates the responsibilty of managing the database to a single object. Listed below are a few advantages of using the Repository pattern:
+	\begin{itemize}
+		\item Enables one to maximize the amount of code that can be tested and isolate the data layer to support unit testing. 
+		\item Enable one to access the data source from many locations by using dependency injection as well as apply centrally managed, consistent access rules and logic.
+		\item Improve maintainability and readability of code by separating business logic from data access logic.  
+	\end{itemize}
+
+ 
+\end{itemize}
 
 \subsection {Navigation}
 
@@ -197,47 +214,95 @@ Design Patterns have been integrated and a discussion of their use are made belo
    	\caption{Use Case Diagram for the Navigations Module}
 \end{figure}
 
+
 \subsection {Notifications}
 
+
+
 \subsubsection{External Interface Requirements}
-Name: Notification
-Format: Text
-Valid Range: Area surrounding the University of Pretoria
-Timing: There is an upcoming event that relates to the user
 
-System Interface:
-Input: An administrator will add an event.
-Output: The event will be added to the list of events.
 
-Hardware Interface
-Input: Server sends the data packets to the mobile application.
-Output: The mobile application will vibrate or make a sound.
+
+\paragraph{Software Interface}
+\mbox{}\\
+The mobile application will connect to the database in order to obtain the users’ information. One such example includes obtaining information regarding the individuals selected notification medium. The mobile application will also connect to the server in order to update information regarding the users email address and mobile number.
+
+\mbox{}\\
+The server will be connected to the notification plugins, which include email and SMS plugins, as well as the application itself in times when notifications are displayed as a pop-up on the users’ mobile device.
+
+
+
+\paragraph{Hardware Interface}
+
+\mbox{}\\
+The user will interact with the mobile device screen in order to set their notification medium preference that is sent and stored on the server. 
+
+\mbox{}\\
+When there is a notification, the server will then send data packets to the mobile application by making use of sockets. This will cause the mobile device to display the message as well as vibrate or make a sound. 
+
+\mbox{}\\
+The user will once again interact with the screen on their mobile device in order to view the notification.
+
+\paragraph{User Interface}
+\mbox{}\\
+The user will initially interact with the notifications module through the application’s GUI where they will request to be notified about a certain event as well as provide their chosen notification medium. 
+
+\mbox{}\\
+If the chosen notifications medium is email, the user will receive a generic email with the given notification. The email will provide a description of the notification in its title. If required, the email will provide a link to the relevant website for more information concerning the notification. If the user selected to receive notifications via SMS, a message describing the notification will be sent to each user. Once again, a link will be provided in the SMS for more information concerning the notification as required. If the user decided to receive notifications through the application, a pop-up will appear on the applications’ GUI when there is a notification. 
 
 \subsubsection{Performance Requirements}
-The system should be able to send out a large number of notifications without any delay (within 5 seconds).
-\\
+
+The system should be able to send out a large number of notifications without any delay (within 5 seconds).\\
+
 Multiple administrators should be able to add new notifications without failure.
+
+
 
 \subsubsection{Design Constraints}
 
+
+
 \subsubsection{Software System Attributes}
-Flexibility: The system should allow for the addition of new notification means.
-\\
-Maintainability: The users’ contact information should be updated on a regular basis.
-\\
-Security: The users’ contact information should be kept secure in order to ensure that third parties do not have access to it.
-\\
-Auditability: The system should keep track of the sent and requested notifications.
-\\
-Integrability: The system should allow for future expansions.
+\begin{enumerate}
+
+\item[•] Flexibility: The system should allow for the addition of new notification means.
+\item[•]Maintainability: The users’ contact information should be updated on a regular basis.
+\item[•]Security: The users’ contact information should be kept secure in order to ensure that third parties do not have access to it.
+\item[•]Auditability: The system should keep track of the sent and requested notifications.
+\item[•]Integrability: The system should allow for future expansions.
+
+\end{enumerate}
+
+
+
 \subsubsection{UML Diagrams}
+\paragraph{Class Diagram}
+\begin{center}
+\includegraphics[width=10cm]{ClassDiagram.png}\\
+\end{center}
+\paragraph{Activity Diagram}
+\begin{center}
+\includegraphics[height=10cm,width=5cm]{ActivityDiagram.png} 
+\end{center}
+
+
+
 \subsubsection{Technology Choices}
+
+
 
 \subsection {Point of Interest}
 
+
+
 \section{Technology Choices}
 
+
+
 \section{References}
+
 Kung, D.C. (2013) Object-oriented software engineering: An agile unified methodology. New York: McGraw Hill Higher Education.
+
+
 
 \end{document}
