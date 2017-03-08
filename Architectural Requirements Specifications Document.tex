@@ -215,12 +215,44 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \end{figure}
 
 
+=======
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Class-Diagram.png}
+   	\caption{Class Diagram for the Navigations Module}
+\end{figure}
+
+\subsubsection {Explanation of Design Patterns in Navigation Module}
+\begin{itemize}
+
+\item \underline{Memento Pattern} - The Memento Pattern has been used in the navigation module in order to capture the internal state of a "route" object while the route is being calculated.
+\item The internal state of the route that we would like to capture is the respective arrays for waypoints, partial distances, partial times and actual distances in the route. 
+\item While routing, connection can be lost or the user may diverge from the specified paths during which the system will have to save the internal state so that it can return to this state at a later stage.
+\item The role-back function in this case would be the re-route function.
+\item The originator in the module is the Route class.
+\item The caretaker is the Navigation class.
+\item The memento is the PartialRouteMemento class.
+
+\item \underline{Strategy Pattern} - The Strategy Pattern has been used in the navigation module in order to define a family of routing algorithms and make them interchangeable.
+\item The users of the system will specify by clicking on different icons, the type of routing they want.
+\item The abstraction class would be the Route class which is the interface to the user and is very generic with fundamental functionality.
+\item The implementation classes would be the SimpleRoute, ShortestRoute and TrafficSenstiveRoute classes that will override the functionality of the superclass with algorithms for their respective needs.
+
+\end{itemize}
+
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Use-Case.jpg}
+   	\caption{Use Case Diagram for the Navigations Module}
+\end{figure}
+
+
 \subsection {Notifications}
 
 
 
 \subsubsection{External Interface Requirements}
-
+The notification system consists of three parts: Software, Hardware and User interface. In order for the notification system to function properly, all three should be able to communicate and work together to perform the required tasks. 
 
 
 \paragraph{Software Interface}
@@ -260,15 +292,29 @@ Multiple administrators should be able to add new notifications without failure.
 
 \subsubsection{Design Constraints}
 
+The server should be able to hold an ever-increasing number of users mobile numbers as well as email addresses without failure.  
 
+The user will require both a mobile number or email address and a mobile device with the application installed.
 
 \subsubsection{Software System Attributes}
 \begin{enumerate}
 
-\item[•] Flexibility: The system should allow for the addition of new notification means.
-\item[•]Maintainability: The users’ contact information should be updated on a regular basis.
-\item[•]Security: The users’ contact information should be kept secure in order to ensure that third parties do not have access to it.
+\item[•] Flexibility: The notifications system should be implemented in such a way that it will allow for the addition of new notification means.
+
+\item[•]Maintainability: The notifications module should be implemented in such a way that future development is allowed. To achieve this, developers should write understandable and well documented code.
+ 
+\item[•]Scalability: The database should be able to hold a large amount of users contact information as well as be able to notify a large amount of users at the same time.
+
+\item[•]Reliability: The notifications module should ensure that all the users receive their required notifications.
+
+\item[•]Security: The contact information of the users should be kept secure in order to ensure that third parties do not have access to it. This means that only authorised individuals should be able to access the contact information of the users.
+
 \item[•]Auditability: The system should keep track of the sent and requested notifications.
+
+\item[•]Testability: The notification service should be tested as a whole as well as in isolation regularly to ensure that the notification system still works optimally.
+
+\item[•]Usability: The user should be able to clearly see that the pop-up is a notification.
+
 \item[•]Integrability: The system should allow for future expansions.
 
 \end{enumerate}
@@ -288,7 +334,17 @@ Multiple administrators should be able to add new notifications without failure.
 
 
 \subsubsection{Technology Choices}
+Tuks email server will be used to notify the users.
+Wi-Fi routers can be used to send the pop-up notifications to the application.
+A SMS service can be used to notify the users.
+\subsubsection{Explanation of Design Patterns in Notifications Module}
+The strategy design pattern was used in the notifications module as it will allow for different mediums of communication to be used interchangeably.
 
+The Context participant will be implemented with the Notification class. This class will be responsible for selecting which strategy will be used to notify the individual.
+
+The Strategy in the design pattern will be implemented using the Strategy class. The responsibility of this class will be to call the required notification algorithm.
+
+The Concrete Strategies will include the Email, SMS and Pop-up classes. These classes will responsible for implementing the different algorithms required for notifying the user based on their selected medium.
 
 
 \subsection {Point of Interest}
