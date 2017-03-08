@@ -103,48 +103,15 @@ u15059538\\
 
 
 \section{External Interface Requirements}
-\subsection {Navigation}
-The navigation system communicates to three main entities. The network, the user and the user’s device. There needs to be an interface 
-between each one of these entities to allow communication. 
-
-User interface: 
-The user interacts with the navigation system via the GUI. This GUI needs to be flexible enough to function on devices of various sizes 
-and operating systems. The interface must allow the user to have some method of control over the navigation system like choosing 
-destinations, waypoints, routes and change in these routes. 
-
-The navigation system should also communicates to the user by showing information on the screen and through audio. This information
-includes messages on the screen, the map, locations on the map and the possible routes on the map.
-
-Other aspects of the user interface like font, icons and the more visual aspects will be decided upon when the GUI is created.
-
-Device Interface:
-In order to allow communication between the device and the navigation system an interface needs to be created. The navigation system 
-needs access and information from the device in order to function. This includes access to its hardware like the screen, 
-device memory, connection to Wi-Fi or the internet, the location system and to information like the device identity. 
-
-The navigation system will be installed on the device along with the application. Being on the device itself will give it the needed
-access, if permission was granted. 
-
-Network Interface:
-The navigation system functions best with communication between it and the network. This connection is established through the device’s 
-connection. The connection can be to a WI-FI network or the mobile data network. 
-
-The interface needs to facilitate exchange of information like location, identity, traffic, route information and aspects that might 
-influence how navigation will take place. These aspects can be events, personal preference or personal 
-information like disabilities. 
-
 
 
 \section{Performance Requirements}
 
 
-
 \section{Design Constraints}
 
 
-
 \section{Software System Attributes}
-
 
 
 \section{UML Diagrams for the Chosen Subsystems}
@@ -214,39 +181,61 @@ Design Patterns have been integrated and a discussion of their use are made belo
    	\caption{Use Case Diagram for the Navigations Module}
 \end{figure}
 
+\subsubsection {External Interface Requirements}
+The navigation system communicates to three main entities; the network, the user and the user’s device. There needs to be an interface between each one of these entities to allow communication.
 
-=======
-\begin{figure}[H]
-   	\centering
-   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Class-Diagram.png}
-   	\caption{Class Diagram for the Navigations Module}
-\end{figure}
-
-\subsubsection {Explanation of Design Patterns in Navigation Module}
 \begin{itemize}
+\item \underline{User interface:} 
+The user interacts with the navigation system via the GUI. This GUI needs to be flexible enough to function on devices of various sizes and operating systems. The interface must allow the user to have some method of control over the navigation system like choosing destinations, waypoints, routes and changes in these routes. 
 
-\item \underline{Memento Pattern} - The Memento Pattern has been used in the navigation module in order to capture the internal state of a "route" object while the route is being calculated.
-\item The internal state of the route that we would like to capture is the respective arrays for waypoints, partial distances, partial times and actual distances in the route. 
-\item While routing, connection can be lost or the user may diverge from the specified paths during which the system will have to save the internal state so that it can return to this state at a later stage.
-\item The role-back function in this case would be the re-route function.
-\item The originator in the module is the Route class.
-\item The caretaker is the Navigation class.
-\item The memento is the PartialRouteMemento class.
+\item The navigation system should also communicate to the user by showing information on the screen and through audio. This information includes messages on the screen, the map, locations on the map and the possible routes on the map.
 
-\item \underline{Strategy Pattern} - The Strategy Pattern has been used in the navigation module in order to define a family of routing algorithms and make them interchangeable.
-\item The users of the system will specify by clicking on different icons, the type of routing they want.
-\item The abstraction class would be the Route class which is the interface to the user and is very generic with fundamental functionality.
-\item The implementation classes would be the SimpleRoute, ShortestRoute and TrafficSenstiveRoute classes that will override the functionality of the superclass with algorithms for their respective needs.
+\item Other aspects of the user interface like font, icons and the more visual aspects will be decided upon when the GUI is created.
+
+\item \underline{Device Interface:}
+\item In order to allow communication between the device and the navigation system, an interface needs to be created. The navigation system needs access and information from the device in order to function. This includes access to its hardware like the screen, device memory, connection to Wi-Fi or the internet, the location system and information like the device identity. 
+
+\item The navigation system will be installed on the device along with the application. Being on the device itself will give it the needed access, if permission was granted. 
+
+\item \underline{Network Interface:}
+\item The navigation system functions best with communication between it and the network. This connection is established through the device’s connection. The connection can be to a WI-FI network or the mobile data network. 
+
+\item The interface needs to facilitate exchange of information like location, identity, traffic, route information and aspects that might influence how navigation will take place. These aspects can be events, personal preference or personal information like disabilities. 
 
 \end{itemize}
 
-\begin{figure}[H]
-   	\centering
-   	\includegraphics[width=0.7\textwidth]{Navigation-Module-Use-Case.jpg}
-   	\caption{Use Case Diagram for the Navigations Module}
-\end{figure}
+\subsubsection {Design Constraints}
+The navigation system is constrained by the device hardware, access to information and the network connection.
 
+\begin{itemize}
+\item The hardware has direct influence on the efficiency of the navigation system. Poor hardware will lead to the navigation system working too slowly. Since this application must function effectively on various types of hardware, it is constrained to popular, rather simple hardware that is common amongst students. For example, it has to function fluently on both the newest smartphones and the older versions like the Samsung Galaxy S3.
 
+\item The navigation system’s efficiency is also constrained to its ability to connect and communicate to the WI-FI and mobile networks. Since it uses the internet to get a constant flow of data that is used to navigate. This information included current location, heat-maps and events. This information is used to determine the best routes.
+
+\item A constraint to the navigation system accuracy is the accuracy of the location system (GIS). The navigation system uses the location system to find its own location as well as locations of other buildings and areas on the map. If the location is inaccurate, the navigation system might give incorrect routes. 
+
+\end{itemize}
+
+\subsubsection {Software System Attributes}
+\begin{itemize}
+\item \underline{Reliability:} 
+\item This navigation system must be able to function in a WI-FI or internet covered environment as well as a non-covered area up to some extent. Every location on campus must be available on the application. 
+
+\item \underline{Security:}
+\item This navigation system should function without releasing any user information to other devices. This navigation system should not access or be used to access any unneeded information on the user’s device. 
+The user should also have a method of control over the information disseminated to the navigation system.
+
+\item \underline{Availability:}
+\item The navigation system must be part of the original application. It should be activated when the user choose a route to take instead of constantly calculating routes or finding locations. 
+
+\item \underline{Interoperability:}
+\item The navigation system must function on Android, iOS and in a web-browser.
+
+\item \underline{Accuracy:}
+\item The navigation system must be accurate up to 3m to function indoors but can be less accurate outdoors. 
+\end{itemize}
+
+=======
 \subsection {Notifications}
 
 
