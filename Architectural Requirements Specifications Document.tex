@@ -144,10 +144,35 @@ Design Patterns have been integrated and a discussion of their use are made belo
 		\item Enables one to maximize the amount of code that can be tested and isolate the data layer to support unit testing. 
 		\item Enable one to access the data source from many locations by using dependency injection as well as apply centrally managed, consistent access rules and logic.
 		\item Improve maintainability and readability of code by separating business logic from data access logic.  
-	\end{itemize}
-
- 
+	\end{itemize} 
 \end{itemize}
+\subsubsection {Activity Diagram for the User Login Use Case}
+ 	\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{login_activity_diagram.png}
+   	\caption{Activity Diagram for the Users Module, Login Use Case}
+	\end{figure}
+	
+	This activity diagram serves to illustrate the flow or actions that will be performed by the system when a user logs onto the system. The getUser() service in the system will be used to retrieve user information to display on the web front-end once a user has been successfully validated and logged in. 
+\subsubsection {Sequence Diagram for the User Register Use Case}
+ 	\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{register_sequence_diagram.png}
+   	\caption{Sequence Diagram for the Users Module, Register Use Case}
+	\end{figure}
+	
+	The register user use case is described as follows: 
+	\begin{itemize}
+		\item The user clicks on register on the web browser in order to register their filled in information. 
+		\item The web client then creates a REST API call with the POST method to create the user. This request is captured from a REST endpoint in the backend of the application.
+		\item When the request is captured in the backend, it is mapped to the userDTO object so that the system can parse the fields in the request body elegantly. 
+		\item The userResource then makes use of \textbf{dependency injection} by injecting the UserService into the class. The resource then invokes the createUser() method of the userService. This method will typically expect a UserDTO object to be passed as parameter.
+		\item The user service will then instantiate a User object and map the required information from the userDTO to the user object. 
+		\item The userRepository service is used in the UserService class via dependecy injection as well. The save() method is invoked which will save the user entry into the database. 
+		\item After saving the user details, the repository returns a User object back to the user service. The user service then creates a results userDTO object to return. 
+		\item The user object that has been returned from the repository is then mapped to the userDTO that will be returned to the userResource. 
+		\item The userResource receives the responseDTO and sends it as a response to the client. This object will be in JSON format. 
+	\end{itemize}
 
 \subsection {Navigation}
 
@@ -350,4 +375,6 @@ Kung, D.C. (2013) Object-oriented software engineering: An agile unified methodo
 
 
 
+
 \end{document}
+
