@@ -99,8 +99,10 @@ u15059538\\
 
 \newpage
 
-
-
+\section{Introduction}
+The purpose of this document is to outline both the overall structure of design of the NavUP system, while focusing on specific subsystems which \textbf{Group Matlab} has decided as important for deployment namely, the \textbf{User, Navigation, Notification and Points of Interest modules}.\\ \\
+\noindent
+\textbf{Architectural Requirements} are identified in terms of external interfaces, performance, design constraints and software system attributes. Each module also has a \textbf{design specification} in terms of UML diagrams (class, use-case etc.) and the various design patterns that are applicable for integration. An \textbf{overview of the entire NavUP system and the technology choices} deemed useful are also outlined.
 
 \section{External Interface Requirements}
 
@@ -257,6 +259,17 @@ Design Patterns have been integrated and a discussion of their use are made belo
    	\includegraphics[width=0.7\textwidth]{DeploymentDiagram.jpg}
    	\caption{Deployment Diagram for NavUP}
 \end{figure}
+
+NavUP can be described as a mixture of an Interactive System and Client-Server System. The users of NavUP have a make a fixed set of requests (view a location, find a route, maintain user profile, view points of interests etc.) and receive fixed responses from the system (an updated map display). However, the Notifications subsystem displays characteristics of Event-Driven Subsystem. 
+The overall architectural style applied is hence of Client-Server – users (clients), by means of access channels (Android, iOS, Web) devices will make concurrent requests to the application server which will respond by making use of other servers like GIS, CS Web Server and associated databases to carry out program logic. The deployment diagram depicts this detail of client-server interaction.
+There are a variety of technology choices that have been made, some of which are indicated on the deployment diagram. Efforts have been made to use commercial off-the-shelf (COTS) parts and products as far as possible to reduce implementation and testing time and improve reliability of the system. There is ease of change and maintenance as the GIS and CS Server can be updated independently of the application server due to the distributed nature of the backend – the client only interacts with the application server.
+
+iOS and Android are without doubt the most used operating systems of devices held by students, staff and visitors in campus. Another benefit includes making the application easily available to users via the Google Play store and Apple iStore. 
+The latest stable release of MapInfo Pro is July 2016 and is a robust software that will provide access to locations of campus at reliable, with fast throughput and response times as is necessary to make the user experiences of NavUP special.
+The Linux OS is more programmer friendly with an easier terminal and more options which will be necessary to implement the Application Server. It is the OS which has been used by all COS 301 students in their undergraduate years in modules like Networking and Operating Systems which make it easier for program development.
+Oracle 12c Database has been chosen because of the following features: upgradability (the database can be upgraded much easier than its competitors in case NavUP expands in the future; cost-effectiveness and the University of Pretoria can get better Customer Service and Support from Oracle than any other product.
+JDBC (Java Database Connectivity) is part of the Java Standard Edition platform, from Oracle Corporation and hence will function well with our Oracle 12c database. This also means all programming can be done using the Java programming language.
+
 
 
 \subsection {User}
