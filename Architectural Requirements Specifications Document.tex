@@ -201,6 +201,18 @@ If the chosen notifications medium is email, the user will receive a generic ema
 
 \subsection{User}
 \subsection{Navigation}
+Because this application’s performance relies greatly on the navigation system’s performance, it is of vital importance that the navigation system meets its requirements. 
+
+\begin{itemize}
+The Navigation System must have an accuracy radius of 3m to perform accurately indoors.
+
+\item The navigation system must be able to calculate and return the optimal route at a fast and efficient pace. It is of little use to know the best route if it takes too long to calculate the route.
+
+\item In order for the system to calculate the best route, and since the fitness system will use data gathered by the navigation system, it is necessary for the navigation system to be able to calculate distance accurately, and it must be able to pass this information along.
+
+\item The navigation system must be able to retrieve and process the needed information at a fast pace so that it doesn’t take up too much processing power from the processor
+\end{itemize}
+
 \subsection{Notification}
 \mbox{}\\
 The system should be able to send out a large number of notifications without any delay (within 5 seconds).\\
@@ -218,9 +230,9 @@ The navigation system is constrained by the device hardware, access to informati
 \begin{itemize}
 \item The hardware has direct influence on the efficiency of the navigation system. Poor hardware will lead to the navigation system working too slowly. Since this application must function effectively on various types of hardware, it is constrained to popular, rather simple hardware that is common amongst students. For example, it has to function fluently on both the newest smartphones and the older versions like the Samsung Galaxy S3.
 
-\item The navigation system’s efficiency is also constrained to its ability to connect and communicate to the WI-FI and mobile networks. Since it uses the internet to get a constant flow of data that is used to navigate. This information included current location, heat-maps and events. This information is used to determine the best routes.
+\item The navigation system’s efficiency is also constrained to its ability to connect and communicate to the WI-FI and mobile networks. Since it uses the internet to get a constant flow of data that is used to navigate. This information includes current location, heat-maps and events. This information is used to determine the best routes.
 
-\item A constraint to the navigation system accuracy is the accuracy of the location system (GIS). The navigation system uses the location system to find its own location as well as locations of other buildings and areas on the map. If the location is inaccurate, the navigation system might give incorrect routes. 
+\item A constraint to the navigation system’s accuracy is the accuracy of the location system (GIS). The navigation system uses the location system to find its own location as well as locations of other buildings and areas on the map. If the location is inaccurate, the navigation system might give incorrect routes. 
 
 \end{itemize}
 
@@ -242,11 +254,10 @@ The user will require both a mobile number or email address and a mobile device 
 \item This navigation system must be able to function in a WI-FI or internet covered environment as well as a non-covered area up to some extent. Every location on campus must be available on the application. 
 
 \item \underline{Security:}
-\item This navigation system should function without releasing any user information to other devices. This navigation system should not access or be used to access any unneeded information on the user’s device. 
-The user should also have a method of control over the information disseminated to the navigation system.
+\item This navigation system should function without releasing any user information to other devices. This navigation system should not access or be used to access any unneeded information on the user’s device. The user should also have a method of control over the information disseminated to the navigation system.
 
 \item \underline{Availability:}
-\item The navigation system must be part of the original application. It should be activated when the user choose a route to take instead of constantly calculating routes or finding locations. 
+\item The navigation system must be part of the original application. It should be activated when the user chooses a route to take instead of constantly calculating routes or finding locations. 
 
 \item \underline{Interoperability:}
 \item The navigation system must function on Android, iOS and in a web-browser.
@@ -254,6 +265,7 @@ The user should also have a method of control over the information disseminated 
 \item \underline{Accuracy:}
 \item The navigation system must be accurate up to 3m to function indoors but can be less accurate outdoors. 
 \end{itemize}
+
 \subsection{Notification}
 \begin{enumerate}
 
