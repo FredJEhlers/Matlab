@@ -150,51 +150,59 @@ The user interacts with the navigation system via the GUI. This GUI needs to be 
 \item Other aspects of the user interface like font, icons and the more visual aspects will be decided upon when the GUI is created.
 
 \item \underline{Device Interface:}
-\item In order to allow communication between the device and the navigation system, an interface needs to be created. The navigation system needs access and information from the device in order to function. This includes access to its hardware like the screen, device memory, connection to Wi-Fi or the internet, the location system and information like the device identity. 
+In order to allow communication between the device and the navigation system, an interface needs to be created. The navigation system needs access and information from the device in order to function. This includes access to its hardware like the screen, device memory, connection to Wi-Fi or the internet, the location system and information like the device identity. 
 
 \item The navigation system will be installed on the device along with the application. Being on the device itself will give it the needed access, if permission was granted. 
 
 \item \underline{Network Interface:}
-\item The navigation system functions best with communication between it and the network. This connection is established through the device’s connection. The connection can be to a WI-FI network or the mobile data network. 
+The navigation system functions best with communication between it and the network. This connection is established through the device’s connection. The connection can be to a WI-FI network or the mobile data network. 
 
 \item The interface needs to facilitate exchange of information like location, identity, traffic, route information and aspects that might influence how navigation will take place. These aspects can be events, personal preference or personal information like disabilities. 
 
 \end{itemize}
 
 \subsection{Notification}
-
-\mbox{}\\
 The notification system consists of three parts: Software, Hardware and User interface. In order for the notification system to function properly, all three should be able to communicate and work together to perform the required tasks. 
 
+\begin{itemize}
 
-\paragraph{Software Interface}
-\mbox{}\\
+\item \underline{Software Interface:}
 The mobile application will connect to the database in order to obtain the users’ information. One such example includes obtaining information regarding the individuals selected notification medium. The mobile application will also connect to the server in order to update information regarding the users email address and mobile number.
 
-\mbox{}\\
-The server will be connected to the notification plugins, which include email and SMS plugins, as well as the application itself in times when notifications are displayed as a pop-up on the users’ mobile device.
+\item The server will be connected to the notification plugins, which include email and SMS plugins, as well as the application itself in times when notifications are displayed as a pop-up on the users’ mobile device.
 
-
-
-\paragraph{Hardware Interface}
-
-\mbox{}\\
+\item \underline{Hardware Interface:}
 The user will interact with the mobile device screen in order to set their notification medium preference that is sent and stored on the server. 
 
-\mbox{}\\
-When there is a notification, the server will then send data packets to the mobile application by making use of sockets. This will cause the mobile device to display the message as well as vibrate or make a sound. 
+\item When there is a notification, the server will then send data packets to the mobile application by making use of sockets. This will cause the mobile device to display the message as well as vibrate or make a sound. 
 
-\mbox{}\\
-The user will once again interact with the screen on their mobile device in order to view the notification.
+\item The user will once again interact with the screen on their mobile device in order to view the notification.
 
-\paragraph{User Interface}
-\mbox{}\\
+\item \underline{User Interface:}
 The user will initially interact with the notifications module through the application’s GUI where they will request to be notified about a certain event as well as provide their chosen notification medium. 
 
-\mbox{}\\
-If the chosen notifications medium is email, the user will receive a generic email with the given notification. The email will provide a description of the notification in its title. If required, the email will provide a link to the relevant website for more information concerning the notification. If the user selected to receive notifications via SMS, a message describing the notification will be sent to each user. Once again, a link will be provided in the SMS for more information concerning the notification as required. If the user decided to receive notifications through the application, a pop-up will appear on the applications’ GUI when there is a notification. 
+\item If the chosen notifications medium is email, the user will receive a generic email with the given notification. The email will provide a description of the notification in its title. If required, the email will provide a link to the relevant website for more information concerning the notification. If the user selected to receive notifications via SMS, a message describing the notification will be sent to each user. Once again, a link will be provided in the SMS for more information concerning the notification as required. If the user decided to receive notifications through the application, a pop-up will appear on the applications’ GUI when there is a notification. 
+
+\end{itemize}
 
 \subsection{Points of Interest}
+The points of interest system is controlled by three main entities: User interface, Software Interface and Hardware Interface. In order for the module to properly function, these entities need to communicate with each other via an interface.
+\begin{itemize}
+\item \underline{User interface:} 
+When the user interacts with the points of interest module, it will be via the GUI which displays the map of campus, where all the points of interest to the user will be displayed. The points of interest should be shown to the user in a way to clearly indicate that a certain location has a point of interest, but also not be too large to block the user from viewing other locations' details near the point of interest, especially on devices with small screens. 
+
+\item The points of interest module should communicate with the user by letting their device vibrate or make a sound when a new point of interest has been added/detected near the user's current location.
+
+\item \underline{Software Interface:}
+The system should make use of the database of registered points of interest and sync their locations to that of the user's current location as to notify the user when they are in range of a point of interest and give them more information about the point of interest.
+
+\item \underline{Hardware Interface:}
+The system can only function if there is an interface for the points of interest module to communicate with other modules and hardware to obtain information like the user's current location via the Wi-Fi network on campus.
+
+\item The device's hardware such as its speakers, vibrator and screen will be used in order to notify the user of a point of interest as well as give the user more information about the point of interest.
+
+
+\end{itemize}
 
 
 \section{Performance Requirements}
@@ -214,9 +222,11 @@ The Navigation System must have an accuracy radius of 3m to perform accurately i
 \end{itemize}
 
 \subsection{Notification}
-\mbox{}\\
-The system should be able to send out a large number of notifications without any delay (within 5 seconds).\\
+\begin{itemize}
+\item The system should be able to send out a large number of notifications without any delay (within 5 seconds).
 Multiple administrators should be able to add new notifications without failure.
+\end{itemize}
+
 \subsection{Points of Interest}
 The Point of Interest module of system does not have particularly stringent performance requirements.
 
@@ -246,13 +256,29 @@ The navigation system is constrained by the device hardware, access to informati
 \end{itemize}
 
 \subsection{Notification}
+The notification module has constraints that limit its ability to function to the best of its ability, these include:
 
-The server should be able to hold an ever-increasing number of users mobile numbers as well as email addresses without failure.  
+\begin{itemize}
+\item The server should be able to hold an ever-increasing number of users mobile numbers as well as email addresses without failure.  
 
-The user will require both a mobile number or email address and a mobile device with the application installed.
+\item The user will require both a mobile number or email address and a mobile device with the application installed.
+\end{itemize}
 
 \subsection{Points of Interest}
+The constraints of the points of interest module include the following:
 
+\begin{itemize}
+\item The database where the details about the points of interest are saved should be designed to ensure that it can handle a lot of entries while also allowing the database to be accessed by multiple devices at the same time.
+
+\item The points of interest module is highly dependant on the accuracy of the locations of the points of interest and therefore the GIS system that is used as well as the navigation module.
+
+\end{itemize}
+
+\begin{itemize}
+\item The database that the 
+
+\item The user will require both a mobile number or email address and a mobile device with the application installed.
+\end{itemize}
 
 \section{Software System Attributes}
 
@@ -260,64 +286,76 @@ The user will require both a mobile number or email address and a mobile device 
 \subsection{Navigation}
 \begin{itemize}
 \item \underline{Reliability:} 
-\item This navigation system must be able to function in a WI-FI or internet covered environment as well as a non-covered area up to some extent. Every location on campus must be available on the application. 
+This navigation system must be able to function in a WI-FI or internet covered environment as well as a non-covered area up to some extent. Every location on campus must be available on the application. 
 
 \item \underline{Security:}
-\item This navigation system should function without releasing any user information to other devices. This navigation system should not access or be used to access any unneeded information on the user’s device. The user should also have a method of control over the information disseminated to the navigation system.
+This navigation system should function without releasing any user information to other devices. This navigation system should not access or be used to access any unneeded information on the user’s device. The user should also have a method of control over the information disseminated to the navigation system.
 
 \item \underline{Availability:}
-\item The navigation system must be part of the original application. It should be activated when the user chooses a route to take instead of constantly calculating routes or finding locations. 
+The navigation system must be part of the original application. It should be activated when the user chooses a route to take instead of constantly calculating routes or finding locations. 
 
 \item \underline{Interoperability:}
-\item The navigation system must function on Android, iOS and in a web-browser.
+The navigation system must function on Android, iOS and in a web-browser.
 
 \item \underline{Accuracy:}
-\item The navigation system must be accurate up to 3m to function indoors but can be less accurate outdoors. 
+The navigation system must be accurate up to 3m to function indoors but can be less accurate outdoors. 
 \end{itemize}
 
 \subsection{Notification}
-\begin{enumerate}
+\begin{itemize}
 
-\item[•]Flexibility: The notifications system should be implemented in such a way that it will allow for the addition of new notification means.
+\item \underline {Flexibility:} 
+The notifications system should be implemented in such a way that it will allow for the addition of new notification means.
 
-\item[•]Maintainability: The notifications module should be implemented in such a way that future development is allowed. To achieve this, developers should write understandable and well documented code.
+\item \underline {Maintainability:} The notifications module should be implemented in such a way that future development is allowed. To achieve this, developers should write understandable and well documented code.
  
-\item[•]Scalability: The database should be able to hold a large amount of users contact information as well as be able to notify a large amount of users at the same time.
+\item \underline {Scalability:} 
+The database should be able to hold a large amount of users contact information as well as be able to notify a large amount of users at the same time.
 
-\item[•]Reliability: The notifications module should ensure that all the users receive their required notifications.
+\item \underline {Reliability:} 
+The notifications module should ensure that all the users receive their required notifications.
 
-\item[•]Security: The contact information of the users should be kept secure in order to ensure that third parties do not have access to it. This means that only authorised individuals should be able to access the contact information of the users.
+\item \underline {Security:}
+The contact information of the users should be kept secure in order to ensure that third parties do not have access to it. This means that only authorised individuals should be able to access the contact information of the users.
 
-\item[•]Auditability: The system should keep track of the sent and requested notifications.
+\item \underline {Auditability:}
+The system should keep track of the sent and requested notifications.
 
-\item[•]Testability: The notification service should be tested as a whole as well as in isolation regularly to ensure that the notification system still works optimally.
+\item \underline {Testability:}
+The notification service should be tested as a whole as well as in isolation regularly to ensure that the notification system still works optimally.
 
-\item[•]Usability: The user should be able to clearly see that the pop-up is a notification.
+\item \underline {Usability:}
+The user should be able to clearly see that the pop-up is a notification.
 
-\item[•]Integrability: The system should allow for future expansions.
+\item \underline {Integrability:}
+The system should allow for future expansions.
 
 
-\end{enumerate}
+\end{itemize}
 \subsection{Points of Interest}
-\begin{enumerate}
-\item[•]Flexibility: It is important that the system architecture is such that one can easily
+\begin{itemize}
+\item \underline {Flexibility:}
+It is important that the system architecture is such that one can easily
 add different access channels to the system. With regards to the Point Of Interest Module, a variety of Points of Interest is key even though it should be bounded and relatable to UP. This is particularly important in the context of the proliferation of connected devices in a world transiting to fully embrace the Internet of Things.
 Furthermore, persistence architectures and reporting infrastructures are rapidly evolving as can
 be seen from the rapid growth of NoSQL databases such as MONGO DB, semantic knowledge repositories and big data stores. This is very important with regards to Point of Interest as it requires flexible variable data types to serve a wide range of interest. Thus in this context it is important that the application functionality is not locked into any specifc persistence technology and that one is able to easily modify the persistence provider and reporting framework.
 
-\item[•]Maintainability: Amongst the most important quality requirements for the system is maintainability. It is required that the system, in particular, Point of Interest Module, should be easy to maintain in the future. This is so that future developers should be able to easily understand the system; developers should be able to easily and relatively quickly change aspects of the functionality the system provides and furthermore add new funcionality (such as book tickets for an event occuring at a users point of interest).
+\item \underline {Maintainability:}
+Amongst the most important quality requirements for the system is maintainability. It is required that the system, in particular, Point of Interest Module, should be easy to maintain in the future. This is so that future developers should be able to easily understand the system; developers should be able to easily and relatively quickly change aspects of the functionality the system provides and furthermore add new funcionality (such as book tickets for an event occuring at a users point of interest).
 The technologies chosen for the system should be available for a long time. 
 
-\item[•]Security: Firstly the system needs to support only:
-\begin{enumerate}
+\item \underline {Security:}
+Firstly the system needs to support only:
+\begin{itemize}
 \item Authentication against admin in the admin interface.
 \item A configurable authorization framework allowing admin to configure the access to any service to the user, in case certain users are also admin but don't work of the same database that they CRUD Points of Interest over. 
 \item Authentication against a chosen user repository. 
-\end{enumerate}
+\end{itemize}
 
 Pertaining to the future the system is expected to also enforce confidentiality through encrypted communication and protection against man-in-the-middle attacks through hashing.
 
-\item[•]Auditability: The system will log all requests and all responses (including exceptions) for all users and administration operations on the point of interest interface provided by the system.
+\item \underline {Auditability:}
+The system will log all requests and all responses (including exceptions) for all users and administration operations on the point of interest interface provided by the system.
 For each request the log should contain an entry with:
 \begin{description}
 \item[$\bullet$] a log id for the log entry,
@@ -337,7 +375,8 @@ These logs will accessible to both users and the system.
 The system should provide only services to extract information from the audit log and will not
 allow the audit log to be modified.
 
-\item[•]Testability: The quality requirements like auditability, integrability, performance, scalability, usability and other requirements should be tested.
+\item \underline {Testability:}
+The quality requirements like auditability, integrability, performance, scalability, usability and other requirements should be tested.
 
 The Point of Interest service offered by the system must be testable through:
 \begin{description}
@@ -352,13 +391,17 @@ In either cases, these functional tests should verify that:
 \item[$\bullet$] that all post-conditions hold true once the operation has been provided.
 \end{description} 
 
-\item[•]Integrability: Widely adopted public standards should be used to access the service operations provided by the Point Of Interest module. This is so the system can be able to easily address future integration requirements. Furthermore, the use case used for Points of Interest should be accessible from external systems to allow further integration.
+\item \underline {Integrability:} 
+Widely adopted public standards should be used to access the service operations provided by the Point Of Interest module. This is so the system can be able to easily address future integration requirements. Furthermore, the use case used for Points of Interest should be accessible from external systems to allow further integration.
 
-\item[•]Scalability: The system will initially be implemented to navigate around the UP campus, but it might be necessary in the future to expand it to manage other facilities such as campuses and mall, therefore it should be scalable to such a user per campus or facility.
-\item[•]Usability: Users must be able to login, navigate to different locations. Utilize additional features provided by the application and logout without hassle. The interface should not be cluttered and should not contain redundant information. As management of information on the system is critical, accessing said information should be as simple as possible.
-\item[•]Reliability: It is imperative that the system not experience unnecessary downtime (period of in-operation of the system), thus preventing users from navigating on the maps to specified destinations, or altering information on the system. Additionally there should not be frequent errors within normal operating parameters of the system. Thus simple logins (sessions), alterations on the database, from either users or admin, should not cause errors which affect the system as a whole.
+\item \underline {Scalability:}
+The system will initially be implemented to navigate around the UP campus, but it might be necessary in the future to expand it to manage other facilities such as campuses and mall, therefore it should be scalable to such a user per campus or facility.
+\item \underline {Usability:}
+Users must be able to login, navigate to different locations. Utilize additional features provided by the application and logout without hassle. The interface should not be cluttered and should not contain redundant information. As management of information on the system is critical, accessing said information should be as simple as possible.
+\item \underline {Reliability:} 
+It is imperative that the system not experience unnecessary downtime (period of in-operation of the system), thus preventing users from navigating on the maps to specified destinations, or altering information on the system. Additionally there should not be frequent errors within normal operating parameters of the system. Thus simple logins (sessions), alterations on the database, from either users or admin, should not cause errors which affect the system as a whole.
 
-\end{enumerate}
+\end{itemize}
 
 \section{UML Diagrams for the Chosen Subsystems}
 
@@ -465,13 +508,15 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \end{center}
 
 \subsubsection{Explanation of Design Patterns in Notifications Module}
-The strategy design pattern was used in the notifications module as it will allow for different mediums of communication to be used interchangeably.
+\begin{itemize}
+\item \underline{Strategy Pattern} It was used in the notifications module as it will allow for different mediums of communication to be used interchangeably.
 
 The Context participant will be implemented with the Notification class. This class will be responsible for selecting which strategy will be used to notify the individual.
 
 The Strategy in the design pattern will be implemented using the Strategy class. The responsibility of this class will be to call the required notification algorithm.
 
 The Concrete Strategies will include the Email, SMS and Pop-up classes. These classes will responsible for implementing the different algorithms required for notifying the user based on their selected medium.
+\end{itemize}
 
 
 \subsection {Point of Interest}
