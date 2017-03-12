@@ -499,20 +499,20 @@ The Concrete Strategies will include the Email, SMS and Pop-up classes. These cl
    	\caption{Sequence Diagram for the Points of Interest Use Case}
 	\end{figure}
 	There exists several operations that perform different sequences on the system.
-	In the case where the user access the Point of Interest and saves it the following occurs:
+	In the case where the admin adds the Points of Interest to the database it the following occurs:
 	\begin{itemize}
-		\item  
-		\item
-		\item
-		\item
+		\item  After admin has logged onto system it follows that the admin selects to open the Point of interest component.
+		\item Admin then adds Points of Interest given location, which is sent as a request to the location manager to validate location. 
+		\item Location admin validates then if true it saves locations onto database.
+		\item A promise response JSON is returned to the POI system which checks if Points of Interest have been added onto the POI array, if successful it will return true.
 	\end{itemize}
 	
 	In the case where the user access the Point of Interest and saves it the following occurs:
 	\begin{itemize}
-		\item  
-		\item
-		\item
-		\item
+		\item  User will open Points of Interest Dashboard, and request to view new open Points of Interest added by the admin. 
+		\item The location manager will return the Location Array that will be displayed in coordinates fashion by the map view in the users interface of the dashboard.  
+		\item User selects the Points of Interest then sends in request to dashboard to save these locations onto the users database.
+		\item Database creates a new object to hold the requested locations to be stored. Once completed the dashboard saves the locations selected onto the database.
 	\end{itemize}
 	
 
