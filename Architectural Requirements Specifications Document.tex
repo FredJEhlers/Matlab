@@ -137,7 +137,14 @@ There are a variety of technology choices that have been made, some of which are
 \section{External Interface Requirements}
 
 \subsection{User}
+The user system interacts with 2 main entities; the web browser and Mail Systems. 
 
+\begin{itemize}
+\item \underline{Web browser} The direct interaction with the user occurs on the web browser when the user enters their credetentials to register/login to the system. Since the front-end web application will require a javascript framework (as do most applications in industry today), it will be a requirement that the system is compatible with Google Chrome or Firefox web browsers. 
+
+\item \underline{Mail Systems} When a user registers onto the NavUP system, their email address will be validated by sending a confirmation link to their email account. So in order for registration to occur, the user needs to have a valid email address. 
+
+\end{itemize}
 \subsection{Navigation}
 The navigation system communicates to three main entities; the network, the user and the user’s device. There needs to be an interface between each one of these entities to allow communication.
 
@@ -208,11 +215,24 @@ The system can only function if there is an interface for the points of interest
 \section{Performance Requirements}
 
 \subsection{User}
+
+The following describes performance requirements for the user module: 
+
+\begin{itemize}
+\item User interface operations should respond within less than 0.2 seconds.
+
+\item Sending the authentication mail upon registration should be an asynchronous method call so as not to deadlock the system while waiting for the user to authenticate. 
+
+\item CRUD operations by the admin on admin interface should be processed in no more than 3 seconds. These changes to particular users should reflect onto the user interface in less than 5 seconds.
+\end{itemize}
+
 \subsection{Navigation}
 Because this application’s performance relies greatly on the navigation system’s performance, it is of vital importance that the navigation system meets its requirements. 
 
-\begin{itemize}
+
 The Navigation System must have an accuracy radius of 3m to perform accurately indoors.
+\begin{itemize}
+
 
 \item The navigation system must be able to calculate and return the optimal route at a fast and efficient pace. It is of little use to know the best route if it takes too long to calculate the route.
 
@@ -407,7 +427,7 @@ It is imperative that the system not experience unnecessary downtime (period of 
 
 Design Patterns have been integrated and a discussion of their use are made below the respective diagrams.
 
-\subsection {User}
+\subsection{User} 
 
 \begin{figure}[H]
    	\centering
@@ -455,7 +475,7 @@ Design Patterns have been integrated and a discussion of their use are made belo
 		\item The userResource receives the responseDTO and sends it as a response to the client. This object will be in JSON format. 
 	\end{itemize}
 
-\subsection {Navigation}
+\subsection{Navigation}
 
 \begin{figure}[H]
    	\centering
@@ -488,7 +508,7 @@ Design Patterns have been integrated and a discussion of their use are made belo
 \end{figure}
 
 
-\subsection {Notifications}
+\subsection{Notifications}
 
 \paragraph{Class Diagram}
 \begin{center}
@@ -519,7 +539,7 @@ The Concrete Strategies will include the Email, SMS and Pop-up classes. These cl
 \end{itemize}
 
 
-\subsection {Point of Interest}
+\subsection{Point of Interest}
 \begin{figure}[H]
    	\centering
    	\includegraphics[width=0.7\textwidth]{POIClassDiagram.png}
@@ -550,11 +570,11 @@ The Concrete Strategies will include the Email, SMS and Pop-up classes. These cl
 	The Point of Interest activity diagram illustrates the progressions of operations that were performed by the system when the user or admin performed operations to the system. 
 	 
 \subsubsection {Sequence Diagram for the Points of Interest Use Case}
- 	\begin{figure}[H]
-   	\centering
-   	\includegraphics[width=0.7\textwidth]{POISequenceDiagram.png}
-   	\caption{Sequence Diagram for the Points of Interest Use Case}
-	\end{figure}
+% 	\begin{figure}[H]
+%   	\centering
+%   	\includegraphics[width=0.7\textwidth]{POISequenceDiagram.png}
+%   	\caption{Sequence Diagram for the Points of Interest Use Case}
+%	\end{figure}
 	There exists several operations that perform different sequences on the system.
 	In the case where the user access the Point of Interest and saves it the following occurs:
 	\begin{itemize}
