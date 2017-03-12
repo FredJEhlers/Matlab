@@ -262,6 +262,12 @@ system.
 \section{Design Constraints}
 
 \subsection{User}
+	The design constraints that you would have on the User module are the following:
+	\begin{itemize}
+		\item Guest users - The system will have very little to nothing information about them so in terms of user experience it will have to be very generic, 					un-personalized. So it will be beneficial if the application is designed in a manner that the user would want to login or create an account.
+		\item Users - Users will only be able to sign up if the user has no account linked to his email address only one account per email address.
+		\item Authentication - The user will be limited to their authentication level and it will limit the use of the application so the system design must 						constrain the user to their authentication level.    
+	\end{itemize}
 \subsection{Navigation}
 
 The navigation system is constrained by the device hardware, access to information and the network connection.
@@ -290,7 +296,7 @@ The constraints of the points of interest module include the following:
 \begin{itemize}
 \item The database where the details about the points of interest are saved should be designed to ensure that it can handle a lot of entries while also allowing the database to be accessed by multiple devices at the same time.
 
-\item The points of interest module is highly dependant on the accuracy of the locations of the points of interest and therefore the GIS system that is used as well as the navigation module.
+\item The points of interest module is highly dependent on the accuracy of the locations of the points of interest and therefore the GIS system that is used as well as the navigation module.
 
 \end{itemize}
 
@@ -303,6 +309,14 @@ The constraints of the points of interest module include the following:
 \section{Software System Attributes}
 
 \subsection{User}
+\begin{itemize}
+	\item \underline{Security:} The users must be authenticated to allow them to use the application. This is a big security requirement to enforce the different 								levels of access the different users have. This must be done securely so no one can manipulate or break the system to gain 								access to features they are not supposed to have access to.
+
+	\item \underline{Availability:} The system cannot go offline since the users will not be able to be authenticated. If users are not authenticated they cannot 								    access most of the features or functionality
+	
+	\item \underline {Scalability:} The database should be able to hold a large amount of users' information. As to the large amount of students on campus and 							    the staff's information
+\end{itemize}
+
 \subsection{Navigation}
 \begin{itemize}
 \item \underline{Reliability:} 
@@ -428,19 +442,34 @@ It is imperative that the system not experience unnecessary downtime (period of 
 Design Patterns have been integrated and a discussion of their use are made below the respective diagrams.
 
 \subsection{User} 
-
+\subsubsection{User Class Diagram}
 \begin{figure}[H]
    	\centering
    	\includegraphics[width=0.7\textwidth]{User_Class_Diagrams.png}
    	\caption{Class Diagram for the User Module}
 \end{figure}
+
+\subsubsection{User Use Case Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{User_Use_Case.jpg}
+   	\caption{Use Case Diagram for the User Module}
+\end{figure}
+
+\subsubsection{State Machine Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Guest_State_Diagram.jpg}
+   	\caption{State Machine Diagram for the guest in the User Module}
+\end{figure}
+
 \subsubsection {Explanation of Design Patterns in User Module}
 \begin{itemize}
 \item \underline{Proxy Pattern} The Proxy pattern has been used in the users module in order to control access to the user profiles within the backend application. By doing this we add a wrapper and delegation to protect the real component from complexity. 
 
 \item The Data Transfer Objects (DTO's)  can have extra / less fields depending on what the client is or is not allowed to see in the user object. Typically the user object will have more fields than the DTO ( such as roles, hashes of passwords etc). 
 
-\item \underline{Repository Pattern} The Repository Architectural Pattern will be used to manage database access. This pattern enables direct mapping of database objects / row entries to classes. It also delegates the responsibilty of managing the database to a single object. Listed below are a few advantages of using the Repository pattern:
+\item \underline{Repository Pattern} The Repository Architectural Pattern will be used to manage database access. This pattern enables direct mapping of database objects / row entries to classes. It also delegates the responsibility of managing the database to a single object. Listed below are a few advantages of using the Repository pattern:
 	\begin{itemize}
 		\item Enables one to maximize the amount of code that can be tested and isolate the data layer to support unit testing. 
 		\item Enable one to access the data source from many locations by using dependency injection as well as apply centrally managed, consistent access rules and logic.
@@ -510,22 +539,33 @@ Design Patterns have been integrated and a discussion of their use are made belo
 
 \subsection{Notifications}
 
-\paragraph{Class Diagram}
-\begin{center}
-\includegraphics[width=10cm]{ClassDiagram.png}\\
-\end{center}
-\paragraph{Activity Diagram}
-\begin{center}
-\includegraphics[height=10cm,width=5cm]{ActivityDiagram.png}\\ 
-\end{center}
-\paragraph{State Diagram}
-\begin{center}
-\includegraphics[height=10cm,width=5cm]{Notification-StateDiagram.png}\\ 
-\end{center}
-\paragraph{Use Case Diagram}
-\begin{center}
-\includegraphics[height=10cm,width=5cm]{Notification-UseCaseDiagram.png}\\ 
-\end{center}
+\subsubsection{Class Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{ClassDiagram.png}
+   	\caption{Class Diagram for the Notification Module}
+\end{figure}
+
+\subsubsection{Activity Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics{ActivityDiagram.png}
+   	\caption{Activity Diagram for the Notification Module}
+\end{figure}
+
+\subsubsection{State Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Notification-StateDiagram.png}
+   	\caption{State Diagram for the Notification Module}
+\end{figure}
+
+\subsubsection{Use Case Diagram}
+\begin{figure}[H]
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Notification-UseCaseDiagram.png}
+   	\caption{Use Case Diagram for the Notification Module}
+\end{figure}
 
 \subsubsection{Explanation of Design Patterns in Notifications Module}
 \begin{itemize}
