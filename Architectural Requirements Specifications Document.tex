@@ -486,13 +486,14 @@ The Concrete Strategies will include the Email, SMS and Pop-up classes. These cl
 
 \item \underline{Strategy Pattern} The Strategy Pattern is used to manage the types of Points of Interest accordingly on the User Interface. This ensures that the correct type of Point of interest is accessed accordingly and not making it complex for the controller (The Dashboard) to display the type of Points of Interest. Also it makes it easier for the administration to do requested operations on the right object type.
 
-\item \underline{Observer Pattern} The 
+\item \underline{Observer Pattern} The Observer Pattern exists in this case as it eliminates a potential many to many relationship. The Dashboard provides an interface for the different types of Points of Interest handled by the manager to attach and detach to the Points of Interest Dashboard.
 
-\item \underline{Mediator Pattern}
+\item \underline{Mediator Pattern} The Mediator is also present as the Dashboard is responsible for controlling and coordinating the interactions of a group of different Points of Interest objects. This pertains to access rights to the user utilizing the dashboard as only the admin have access to certain operations. Class diagram is also structured in such a way that loose coupling exists between the Dashboard and the Points of Interest. Thereby the objects are interacting independently. As the change of states between these the Dashboard and the Points of Interest are independently made. 
 
-\item \underline{Adapter Pattern} 
+\item \underline{Adapter Pattern} The adapter in this case is the Dashboard and the Target for the User and Administration, this is because it contains the Location and so if a different metric unit is required it can call the Adaptee which has operations required to convert and return as a new type.
 
-\item \underline{Flyweight Pattern}
+\item \underline{Flyweight Pattern} As the admin is responsible for the creation and deletion of Points of Interest. In order for dashboard to display (if any) the amount of Points of Interest, a Flyweight is required. This is true as the different Concrete types of Points of Interest are created as soon as the dashboard is accessed  in order to display what types of Points of Interest exists and (if any) the Points of Interest existing.
+
 \end{itemize}
 \subsubsection {Activity Diagram for the Points of Interest Module Use Case}
  	\begin{figure}[H]
@@ -502,11 +503,6 @@ The Concrete Strategies will include the Email, SMS and Pop-up classes. These cl
 	\end{figure}
 	
 	The Point of Interest activity diagram illustrates the progressions of operations that were performed by the system when the user or admin performed operations to the system. 
-	
-	
-	
-	
-	
 	 
 \subsubsection {Sequence Diagram for the Points of Interest Use Case}
  	\begin{figure}[H]
